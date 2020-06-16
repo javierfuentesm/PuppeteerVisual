@@ -30,4 +30,24 @@ describe('Visual Regresion testing',  () => {
 			failureTresholdType: 'percent',
 			failureTreshold: 0.01,
 		})	})
+	test('Mobile snapshot',async () => {
+		await page.goto('https://www.google.com')
+		await page.waitForSelector('#hplogo')
+		await page.emulate(puppeteer.devices['iPhone X'])
+		const image = await page.screenshot()
+		expect(image).toMatchImageSnapshot({
+			failureTresholdType: 'percent',
+			failureTreshold: 0.01,
+		})
+	})
+	test('iPAD snapshot',async () => {
+		await page.goto('https://www.google.com')
+		await page.waitForSelector('#hplogo')
+		await page.emulate(puppeteer.devices['iPad landscape'])
+		const image = await page.screenshot()
+		expect(image).toMatchImageSnapshot({
+			failureTresholdType: 'percent',
+			failureTreshold: 0.01,
+		})
+	})
 })
