@@ -1,0 +1,18 @@
+{
+  "name": "pptr-visual",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-snapshot": "jest --config=jest.config.js --detectOpenHandles --forceExit",
+    "test-snapshot-update": "jest --config=jest.config.js --updateSnapshot --detectOpenHandles --forceExit",
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.0.1",
+    "jest-image-snapshot": "^4.0.2",
+    "prettier": "^2.0.5",
+    "puppeteer": "^4.0.0"
+  }
+}
