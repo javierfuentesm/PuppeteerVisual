@@ -22,4 +22,12 @@ describe('Visual Regresion testing',  () => {
 			failureTreshold: 500,
 		})
 	})
+	test('Single element snapshot', async ()=>{
+		await page.goto('https://www.google.com')
+		const hplogo = await page.waitForSelector('#hplogo')
+		const image = await hplogo.screenshot()
+		expect(image).toMatchImageSnapshot({
+			failureTresholdType: 'percent',
+			failureTreshold: 0.01,
+		})	})
 })
