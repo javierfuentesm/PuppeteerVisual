@@ -50,4 +50,15 @@ describe('Visual Regresion testing',  () => {
 			failureTreshold: 0.01,
 		})
 	})
+	test('Remove element before snapshots',async () => {
+		await page.goto('https://www.google.com')
+		await page.evaluate(()=>{
+			;(document.querySelectorAll('#hplogo') || []).forEach(el=>el.remove())
+		})
+		const image = await page.screenshot()
+		expect(image).toMatchImageSnapshot({
+			failureTresholdType: 'percent',
+			failureTreshold: 0.01,
+		})
+	})
 })
